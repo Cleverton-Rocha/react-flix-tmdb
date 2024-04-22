@@ -15,15 +15,15 @@ const loginSchema = z.object({
   password: z
     .string()
     .min(8, { message: 'Password must have at least 8 characters' })
-    .max(100, { message: 'Password must have at most 100 characters' })
-    .refine(
-      (password) =>
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password),
-      {
-        message:
-          'Password must have at least one uppercase letter, one lowercase letter and one number.',
-      },
-    ),
+    .max(100, { message: 'Password must have at most 100 characters' }),
+  // .refine(
+  //   (password) =>
+  //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password),
+  //   {
+  //     message:
+  //       'Password must have at least one uppercase letter, one lowercase letter and one number.',
+  //   },
+  // ),
 })
 
 type LoginFormValues = z.infer<typeof loginSchema>
@@ -41,73 +41,84 @@ const LoginForm: React.FC = () => {
     console.log(data)
   }
   return (
-    <div className="flex h-screen flex-col items-center justify-center">
-      <div className="flex h-[520px] w-[420px] flex-col gap-5 rounded-lg p-10 shadow-xl">
-        <div>
-          <h1 className="text-[30px] font-semibold">Access your account</h1>
-        </div>
-
-        <div className="flex flex-col gap-8">
-          <form onSubmit={handleSubmit((data) => onSubmit(data))}>
-            <div>
-              <input
-                type="text"
-                placeholder="Username"
-                {...register('username')}
-                className="mb-2 mt-3 w-full border-b border-black border-opacity-20 py-2 text-lg outline-none placeholder:text-base"
-              />
-              {errors.username && (
-                <span className="text-sm text-red-500">
-                  {errors.username.message}
-                </span>
-              )}
-            </div>
-
-            <div className="mt-8">
-              <input
-                {...register('password')}
-                type="password"
-                placeholder="Password"
-                className="mb-2 mt-3 w-full border-b border-black border-opacity-20 py-2 text-lg outline-none placeholder:text-base"
-              />
-
-              {errors.password && (
-                <span className="text-sm text-red-500">
-                  {errors.password.message}
-                </span>
-              )}
-            </div>
-
-            <div className="mt-12 flex justify-center">
-              <button
-                type="submit"
-                className="w-full rounded bg-blue-600 p-2 text-xl font-semibold  transition duration-200 hover:bg-blue-700"
+    <>
+      <div className="flex h-screen flex-col items-center justify-center bg-[#F9F9F9]">
+        <div className="flex h-[550px] w-[450px] flex-col gap-5 rounded-lg p-10">
+          <div className="flex flex-col items-center gap-4 ">
+            <h1 className="text-4xl font-semibold">Welcome!</h1>
+            <span>
+              Don't have account yet?{' '}
+              <Link
+                to={'/create-account'}
+                className="font-bold transition duration-200 hover:border-b hover:border-black"
               >
-                <div className="flex items-center justify-center text-white">
-                  <span>Login</span>
-                </div>
-              </button>
-            </div>
-          </form>
-          <div className="flex flex-col items-center justify-center gap-2 p-3 text-sm font-medium">
-            <Link
-              to={'/forgot-password'}
-              className="flex items-center text-blue-600 transition duration-200 hover:text-blue-700"
+                Register
+              </Link>
+            </span>
+          </div>
+
+          <div className="relative flex items-center py-2">
+            <div className="flex-grow border-t border-gray-400"></div>
+            <span className="mx-2 flex-shrink text-gray-600">Or</span>
+            <div className="flex-grow border-t border-gray-400"></div>
+          </div>
+
+          <div>
+            <form
+              onSubmit={handleSubmit((data) => onSubmit(data))}
+              className="flex flex-col"
             >
-              <span>Forgot password</span>
-              {/*adicionar função de esqueci senha */}
-            </Link>
-            <span>or</span>
-            <Link
-              to={'/create-account'}
-              className="flex items-center text-blue-600 transition duration-200 hover:text-blue-700"
-            >
-              <span>Register a new account</span>
-            </Link>
+              <div>
+                <label htmlFor="username" className="text-sm">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  placeholder="E.g. your_username123"
+                  {...register('username')}
+                  className="mb-2 mt-3 w-full rounded-full border bg-[#f1f1f1] px-4 py-2 text-lg outline-none placeholder:text-base"
+                />
+                {errors.username && (
+                  <span className="flex justify-center px-4 text-sm  text-red-500">
+                    {errors.username.message}
+                  </span>
+                )}
+              </div>
+
+              <div className="mt-5">
+                <label htmlFor="password" className="text-sm">
+                  Password
+                </label>
+                <input
+                  {...register('password')}
+                  type="password"
+                  placeholder="Enter your password"
+                  className="mb-2 mt-3 w-full rounded-full border bg-[#f1f1f1] px-4 py-2 text-lg outline-none placeholder:text-base"
+                />
+
+                {errors.password && (
+                  <span className="flex justify-center px-4 text-sm text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+              </div>
+
+              <div className="mt-6 flex justify-center">
+                <button
+                  type="submit"
+                  className="w-2/3 rounded-full bg-black p-2 text-xl font-semibold transition duration-200 hover:scale-105"
+                >
+                  <div className="flex items-center justify-center text-white">
+                    <span>Sign in</span>
+                  </div>
+                </button>
+              </div>
+            </form>
+            <div className="flex flex-col items-center justify-center text-sm font-medium"></div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
