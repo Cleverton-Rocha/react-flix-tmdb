@@ -162,10 +162,10 @@ const RegisterForm: React.FC = () => {
                 className="p-2"
               />
 
-              <div className="mt-4 flex justify-center">
+              <div className="mt-4 flex cursor-pointer justify-center">
                 <button
                   type="submit"
-                  className="w-2/3 rounded-full bg-black p-2 text-xl font-semibold transition duration-200 hover:scale-105"
+                  className="w-2/3 rounded-full bg-black p-2 text-xl font-semibold"
                 >
                   <div className="flex items-center justify-center text-white">
                     <span>Sign up</span>
@@ -173,7 +173,6 @@ const RegisterForm: React.FC = () => {
                 </button>
               </div>
             </form>
-            <div className="flex flex-col items-center justify-center text-sm font-medium"></div>
           </div>
         </div>
       </div>
