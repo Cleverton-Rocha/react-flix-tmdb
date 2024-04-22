@@ -1,4 +1,4 @@
-const MoviePoster = () => {
+const MoviePoster: React.FC = () => {
   return (
     <>
       <div>
