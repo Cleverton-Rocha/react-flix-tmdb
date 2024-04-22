@@ -1,7 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { z } from 'zod'
+
+import PasswordToggle from './password-toggle'
 
 const loginSchema = z.object({
   username: z
@@ -29,6 +32,8 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>
 
 const LoginForm: React.FC = () => {
+  const [inputType, setInputType] = useState('password')
+
   const {
     register,
     handleSubmit,
@@ -91,7 +96,7 @@ const LoginForm: React.FC = () => {
                 </label>
                 <input
                   {...register('password')}
-                  type="password"
+                  type={inputType}
                   placeholder="Enter your password"
                   className="mb-2 mt-3 w-full rounded-full border bg-[#f1f1f1] px-4 py-2 text-lg outline-none placeholder:text-base"
                 />
@@ -103,7 +108,13 @@ const LoginForm: React.FC = () => {
                 )}
               </div>
 
-              <div className="mt-6 flex justify-center">
+              <PasswordToggle
+                inputType={inputType}
+                setInputType={setInputType}
+                className="p-2"
+              />
+
+              <div className="mt-4 flex justify-center">
                 <button
                   type="submit"
                   className="w-2/3 rounded-full bg-black p-2 text-xl font-semibold transition duration-200 hover:scale-105"
