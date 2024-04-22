@@ -45,7 +45,7 @@ const LoginForm: React.FC = () => {
       <div className="flex h-screen flex-col items-center justify-center bg-[#F9F9F9]">
         <div className="flex h-[550px] w-[450px] flex-col gap-5 rounded-lg p-10">
           <div className="flex flex-col items-center gap-4 ">
-            <h1 className="text-4xl font-semibold">Welcome!</h1>
+            <h1 className="text-4xl font-semibold">React Flix!</h1>
             <span>
               Don't have account yet?{' '}
               <Link
