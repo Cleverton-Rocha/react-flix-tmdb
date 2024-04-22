@@ -15,15 +15,15 @@ const loginSchema = z.object({
   password: z
     .string()
     .min(8, { message: 'Password must have at least 8 characters' })
-    .max(100, { message: 'Password must have at most 100 characters' }),
-  // .refine(
-  //   (password) =>
-  //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password),
-  //   {
-  //     message:
-  //       'Password must have at least one uppercase letter, one lowercase letter and one number.',
-  //   },
-  // ),
+    .max(100, { message: 'Password must have at most 100 characters' })
+    .refine(
+      (password) =>
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password),
+      {
+        message:
+          'Password must have at least one uppercase letter, one lowercase letter and one number.',
+      },
+    ),
 })
 
 type LoginFormValues = z.infer<typeof loginSchema>
@@ -52,7 +52,7 @@ const LoginForm: React.FC = () => {
                 to={'/create-account'}
                 className="font-bold transition duration-200 hover:border-b hover:border-black"
               >
-                Register
+                Sign up
               </Link>
             </span>
           </div>
