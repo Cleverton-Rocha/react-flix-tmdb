@@ -2,7 +2,7 @@ import Header from '../components/header'
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <div className="h-screen bg-[#131127]">
       <Header />
     </div>
   )
