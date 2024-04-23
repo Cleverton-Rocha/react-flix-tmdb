@@ -6,6 +6,7 @@ import App from './App.tsx'
 import './index.css'
 import Login from './pages/login.tsx'
 import Register from './pages/register.tsx'
+import Home from './pages/home.tsx'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: '/create-account',
         element: <Register />,
+      },
+      {
+        path: '/home',
+        element: <Home />,
       },
     ],
   },
