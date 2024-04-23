@@ -58,7 +58,7 @@ const RegisterForm: React.FC = () => {
 
   return (
     <>
-      <div className="flex h-screen flex-col items-center justify-center bg-[#F9F9F9]">
+      <div className="flex h-screen flex-col items-center justify-center bg-[#131127] text-white">
         <div className="flex h-[800px] w-[450px] flex-col gap-5 rounded-lg p-10">
           <div className="flex flex-col items-center gap-4 ">
             <h1 className="text-4xl font-semibold">React Flix!</h1>
@@ -75,7 +75,7 @@ const RegisterForm: React.FC = () => {
 
           <div className="relative flex items-center py-2">
             <div className="flex-grow border-t border-gray-400"></div>
-            <span className="mx-2 flex-shrink text-gray-600">Or</span>
+            <span className="mx-2 flex-shrink text-white">Or</span>
             <div className="flex-grow border-t border-gray-400"></div>
           </div>
 
@@ -92,7 +92,7 @@ const RegisterForm: React.FC = () => {
                   type="text"
                   placeholder="E.g. example@email.com"
                   {...register('email')}
-                  className="mb-2 mt-3 w-full rounded-full border bg-[#f1f1f1] px-4 py-2 text-lg outline-none placeholder:text-base"
+                  className="mb-2 mt-3 w-full rounded-full bg-[#221f3a] px-4 py-2 text-lg outline-none placeholder:text-base"
                 />
                 {errors.email && (
                   <span className="flex justify-center px-4 text-sm  text-red-500">
@@ -109,7 +109,7 @@ const RegisterForm: React.FC = () => {
                   type="text"
                   placeholder="E.g. your_username123"
                   {...register('username')}
-                  className="mb-2 mt-3 w-full rounded-full border bg-[#f1f1f1] px-4 py-2 text-lg outline-none placeholder:text-base"
+                  className="mb-2 mt-3 w-full rounded-full bg-[#221f3a] px-4 py-2 text-lg outline-none placeholder:text-base"
                 />
                 {errors.username && (
                   <span className="flex justify-center px-4 text-sm  text-red-500">
@@ -126,7 +126,7 @@ const RegisterForm: React.FC = () => {
                   {...register('password')}
                   type={inputType}
                   placeholder="Enter your password"
-                  className="mb-2 mt-3 w-full rounded-full border bg-[#f1f1f1] px-4 py-2 text-lg outline-none placeholder:text-base"
+                  className="mb-2 mt-3 w-full rounded-full bg-[#221f3a] px-4 py-2 text-lg outline-none placeholder:text-base"
                 />
 
                 {errors.password && (
@@ -145,7 +145,7 @@ const RegisterForm: React.FC = () => {
                     {...register('confirmPassword')}
                     type={inputType}
                     placeholder="Confirm your password"
-                    className="mb-2 mt-3 w-full rounded-full border bg-[#f1f1f1] px-4 py-2 text-lg outline-none placeholder:text-base"
+                    className="mb-2 mt-3 w-full rounded-full bg-[#221f3a] px-4 py-2 text-lg outline-none placeholder:text-base"
                   />
                 </div>
 
@@ -162,12 +162,12 @@ const RegisterForm: React.FC = () => {
                 className="p-2"
               />
 
-              <div className="mt-4 flex cursor-pointer justify-center">
+              <div className="mt-4 flex cursor-pointer justify-center transition hover:text-black">
                 <button
                   type="submit"
-                  className="w-2/3 rounded-full bg-black p-2 text-xl font-semibold"
+                  className="w-2/3 rounded-full border-2 p-2 text-xl font-semibold hover:bg-white "
                 >
-                  <div className="flex items-center justify-center text-white">
+                  <div className="flex items-center justify-center">
                     <span>Sign up</span>
                   </div>
                 </button>
