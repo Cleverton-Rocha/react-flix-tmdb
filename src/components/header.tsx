@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Search } from 'lucide-react'
+import { Search, User } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -29,11 +29,11 @@ const Header = () => {
 
   return (
     <div className="flex h-24 justify-between bg-[#131127]">
-      <h1 className="flex h-full items-center px-4 text-2xl font-bold text-white">
+      <h1 className=" ml-12 flex h-full items-center text-2xl font-bold text-white">
         React Flix.
       </h1>
       <form
-        className="mx-auto flex h-full items-center"
+        className="flex h-full items-center"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="relative">
@@ -41,13 +41,13 @@ const Header = () => {
             {...register('search')}
             type="text"
             placeholder="Search here..."
-            className="h-10 w-[300px] rounded-full bg-[#221f3a] p-4 text-white outline-none placeholder:text-[#9392a3]"
+            className="h-12 w-[450px] rounded-full bg-[#221f3a] px-6 text-white outline-none placeholder:text-[#9392a3]"
           />
           <button
             type="submit"
-            className="absolute right-4 h-10 rounded-r-md text-[#9392a3]"
+            className="absolute right-4 h-12 text-[#9392a3]"
           >
-            <Search />
+            <Search className="transition duration-200 hover:text-white" />
           </button>
         </div>
         {errors.search && (
@@ -56,7 +56,9 @@ const Header = () => {
           </span>
         )}
       </form>
-      <div className="flex items-center px-4 text-white">user icon</div>
+      <div className="mr-12 flex items-center text-white">
+        <User />
+      </div>
     </div>
   )
 }
