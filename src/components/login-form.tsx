@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { z } from 'zod'
 
+import { useLogin } from '../queries/user'
+
 import PasswordToggle from './password-toggle'
 
 const loginSchema = z.object({
@@ -17,19 +19,10 @@ const loginSchema = z.object({
     }),
   password: z
     .string()
-    .min(8, { message: 'Password must have at least 8 characters' })
-    .max(100, { message: 'Password must have at most 100 characters' })
-    .refine(
-      (password) =>
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password),
-      {
-        message:
-          'Password must have at least one uppercase letter, one lowercase letter and one number.',
-      },
-    ),
+    .min(8, { message: 'Password must have at least 8 characters' }),
 })
 
-type LoginFormValues = z.infer<typeof loginSchema>
+export type LoginFormValues = z.infer<typeof loginSchema>
 
 const LoginForm: React.FC = () => {
   const [inputType, setInputType] = useState('password')
@@ -42,8 +35,10 @@ const LoginForm: React.FC = () => {
     resolver: zodResolver(loginSchema),
   })
 
+  const login = useLogin()
+
   const onSubmit = (data: LoginFormValues) => {
-    console.log(data)
+    login.mutate(data)
   }
   return (
     <>
