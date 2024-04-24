@@ -11,7 +11,7 @@ const searchSchema = z.object({
 
 type SearchFormValues = z.infer<typeof searchSchema>
 
-const Header = () => {
+const Header: React.FC = () => {
   const {
     register,
     handleSubmit,
