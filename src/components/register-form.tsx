@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { z } from 'zod'
 import { useState } from 'react'
 
+import { useRegister } from '../queries/user'
+
 import PasswordToggle from './password-toggle'
 
 const registerSchema = z
@@ -52,8 +54,10 @@ const RegisterForm: React.FC = () => {
     resolver: zodResolver(registerSchema),
   })
 
+  const registerUser = useRegister()
+
   const onSubmit = (data: RegisterFormValues) => {
-    console.log(data)
+    registerUser.mutate(data)
   }
 
   return (
