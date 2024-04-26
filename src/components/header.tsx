@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Search, User } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -28,9 +28,9 @@ const Header: React.FC = () => {
   //fazer componente de user que terá endpoints do user na api
 
   return (
-    <div className="flex h-24 justify-between bg-[#131127]">
-      <h1 className=" ml-12 flex h-full items-center text-2xl font-bold text-white">
-        React Flix.
+    <div className="flex h-24 justify-around bg-black">
+      <h1 className="my-auto text-4xl text-white">
+        React <span className="text-red-700">Flix</span>
       </h1>
       <form
         className="flex h-full items-center"
@@ -40,8 +40,8 @@ const Header: React.FC = () => {
           <input
             {...register('search')}
             type="text"
-            placeholder="Search here..."
-            className="h-12 w-[450px] rounded-full bg-[#221f3a] px-6 text-white outline-none placeholder:text-[#9392a3]"
+            placeholder="Search for a movie"
+            className="h-12 w-[450px] rounded-full border border-[#131313] bg-black px-6 text-white outline-none placeholder:text-[#9392a3]"
           />
           <button
             type="submit"
@@ -56,9 +56,7 @@ const Header: React.FC = () => {
           </span>
         )}
       </form>
-      <div className="mr-12 flex items-center text-white">
-        <User />
-      </div>
+      <div className="mr-12 flex items-center text-white"></div>
     </div>
   )
 }
