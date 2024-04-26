@@ -42,15 +42,17 @@ const LoginForm: React.FC = () => {
   }
   return (
     <>
-      <div className="flex h-screen flex-col items-center justify-center bg-[#131127] text-white">
+      <div className="flex h-screen flex-col items-center justify-center bg-black text-white">
         <div className="flex h-[550px] w-[450px] flex-col gap-5 rounded-lg p-10">
           <div className="flex flex-col items-center gap-4 text-white">
-            <h1 className="text-4xl font-semibold">React Flix!</h1>
+            <h1 className="text-4xl font-semibold">
+              React <span className="text-red-700">Flix</span>
+            </h1>
             <span>
               Don't have account yet?{' '}
               <Link
                 to={'/create-account'}
-                className="font-bold transition duration-200 hover:border-b hover:border-black"
+                className="font-bold transition duration-200 hover:border-b hover:border-white"
               >
                 Sign up
               </Link>
@@ -58,9 +60,9 @@ const LoginForm: React.FC = () => {
           </div>
 
           <div className="relative flex items-center py-2">
-            <div className="flex-grow border-t border-gray-400"></div>
-            <span className="mx-2 flex-shrink text-white">Or</span>
-            <div className="flex-grow border-t border-gray-400"></div>
+            <div className="flex-grow border-t border-[#131313]"></div>
+            <span className="mx-2 flex-shrink text-white">or</span>
+            <div className="flex-grow border-t border-[#131313]"></div>
           </div>
 
           <div>
@@ -74,12 +76,12 @@ const LoginForm: React.FC = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="E.g. your_username123"
+                  placeholder="Enter your username"
                   {...register('username')}
-                  className="mb-2 mt-3 w-full rounded-full bg-[#221f3a] px-4 py-2 text-lg outline-none placeholder:text-base"
+                  className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none placeholder:text-base placeholder:text-white/50"
                 />
                 {errors.username && (
-                  <span className="flex justify-center px-4 text-sm  text-red-500">
+                  <span className="flex justify-center px-4 text-sm  text-red-700">
                     {errors.username.message}
                   </span>
                 )}
@@ -93,11 +95,11 @@ const LoginForm: React.FC = () => {
                   {...register('password')}
                   type={inputType}
                   placeholder="Enter your password"
-                  className="mb-2 mt-3 w-full rounded-full bg-[#221f3a] px-4 py-2 text-lg outline-none placeholder:text-base"
+                  className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none placeholder:text-base placeholder:text-white/50"
                 />
 
                 {errors.password && (
-                  <span className="flex justify-center px-4 text-sm text-red-500">
+                  <span className="flex justify-center px-4 text-sm text-red-700">
                     {errors.password.message}
                   </span>
                 )}
@@ -109,10 +111,10 @@ const LoginForm: React.FC = () => {
                 className="p-2"
               />
 
-              <div className="mt-4 flex cursor-pointer justify-center transition hover:text-black">
+              <div className="mt-4 flex cursor-pointer justify-center transition">
                 <button
                   type="submit"
-                  className="w-2/3 rounded-full border-2 p-2 text-xl font-semibold hover:bg-white "
+                  className="w-2/3 rounded-full border-2 border-[#131313] p-2 text-xl font-semibold hover:bg-white hover:text-black"
                 >
                   <div className="flex items-center justify-center">
                     <span>Sign in</span>
