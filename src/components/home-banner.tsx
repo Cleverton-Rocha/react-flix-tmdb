@@ -1,6 +1,6 @@
 const HomeBanner = () => {
   return (
-    <div className="grid grid-cols-2 px-80">
+    <div className="grid select-none grid-cols-2 px-80">
       <span className="my-auto w-[700px] p-12 text-6xl text-white">
         Take your movie experience to the next{' '}
         <span className="text-red-700">level</span>
