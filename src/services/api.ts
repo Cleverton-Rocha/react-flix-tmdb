@@ -4,7 +4,6 @@ import Cookies from 'js-cookie'
 import {
   LoginData,
   LoginResponse,
-  MoviePage,
   RegisterData,
   RegisterResponse,
 } from '../utils/types'
@@ -25,10 +24,22 @@ export async function login(loginData: LoginData) {
   return data
 }
 
-export async function getTopRatedMovies(pageNumber: number = 1) {
-  const { data } = await api.get<MoviePage>(
-    `/api/movies/top-rated?page=${pageNumber}`,
-    { headers: { Authorization: `Bearer ${token}` } },
-  )
+export async function getTopRatedMovies({ pageParam }: { pageParam: number }) {
+  const { data } = await api.get(`/api/movies/top-rated?page=${pageParam}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+  return data
+}
+
+export async function getMovieByGenre({
+  genreName,
+  pageParam,
+}: {
+  genreName: string
+  pageParam: number
+}) {
+  const { data } = await api.get(`/api/genre/${genreName}?page=${pageParam}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
   return data
 }
