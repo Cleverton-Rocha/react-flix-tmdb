@@ -1,10 +1,32 @@
-import { useQuery } from '@tanstack/react-query'
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
 
-import { getTopRatedMovies } from '../../services/api'
+import { getMovieByGenre, getTopRatedMovies } from '../../services/api'
 
-export function useFetchTopRatedMovies(pageNumber: number = 1) {
+export function useFetchTopRatedMovies(pageParam: number = 1) {
   return useQuery({
-    queryKey: ['topRated', pageNumber],
-    queryFn: () => getTopRatedMovies(pageNumber),
+    queryKey: ['topRated', pageParam],
+    queryFn: () => getTopRatedMovies({ pageParam }),
+  })
+}
+
+export function useFetchTopRatedMoviesInfinityQuery() {
+  return useInfiniteQuery({
+    queryKey: ['top-rated'],
+    queryFn: getTopRatedMovies,
+    initialPageParam: 1,
+    getNextPageParam: (_lastPage, allPages) => {
+      return allPages.length + 1
+    },
+  })
+}
+
+export function useFetchMovieByGenreInfinityQuery(genreName: string) {
+  return useInfiniteQuery({
+    queryKey: ['genre', genreName],
+    queryFn: ({ pageParam }) => getMovieByGenre({ genreName, pageParam }),
+    initialPageParam: 1,
+    getNextPageParam: (_lastPage, allPages) => {
+      return allPages.length + 1
+    },
   })
 }
