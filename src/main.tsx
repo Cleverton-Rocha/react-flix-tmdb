@@ -10,6 +10,7 @@ import Register from './pages/register.tsx'
 import Home from './pages/home.tsx'
 import queryClient from './services/queryClient.ts'
 import TopRatedMovies from './pages/top-rated-movies.tsx'
+import Movie from './pages/movie.tsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/top-rated',
         element: <TopRatedMovies />,
+      },
+      {
+        path: '/movie/:movieId',
+        element: <Movie />,
       },
     ],
   },
