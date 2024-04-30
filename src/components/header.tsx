@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Search } from 'lucide-react'
+import { Search, User } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -29,7 +29,7 @@ const Header: React.FC = () => {
 
   return (
     <div className="flex h-24 justify-around bg-black">
-      <h1 className="my-auto text-4xl text-white">
+      <h1 className="my-auto select-none text-4xl text-white">
         React <span className="text-red-700">Flix</span>
       </h1>
       <form
@@ -51,12 +51,14 @@ const Header: React.FC = () => {
           </button>
         </div>
         {errors.search && (
-          <span className="flex justify-center px-4 text-sm text-red-500">
+          <span className="flex justify-center px-4 text-sm text-red-700">
             {errors.search.message}
           </span>
         )}
       </form>
-      <div className="mr-12 flex items-center text-white"></div>
+      <div className="mr-12 flex items-center text-white">
+        <User size={25} />
+      </div>
     </div>
   )
 }
