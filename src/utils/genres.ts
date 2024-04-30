@@ -1,67 +1,54 @@
 export const genres = [
   {
-    name: 'ação',
+    name: 'Ação',
     id: 28,
-    image: 'https://image.tmdb.org/t/p/w500/A4kvp7vY1BDLrrQIagRCffLKj1t.jpg',
   },
   {
-    name: 'aventura',
+    name: 'Aventura',
     id: 12,
-    image: 'https://image.tmdb.org/t/p/w500/8LJJjLjAzAwXS40S5mx79PJ2jSs.jpg ',
   },
   {
-    name: 'animação',
+    name: 'Animação',
     id: 16,
-    image: 'https://image.tmdb.org/t/p/w500/aNK6MA5EApIo0UJE7ZWSYcZBJKy.jpg',
   },
   {
-    name: 'comédia',
+    name: 'Comédia',
     id: 35,
-    image: 'https://image.tmdb.org/t/p/w500/7xvLGlzqlMdJi7b2w1SKycsbpVI.jpg',
   },
   {
-    name: 'crime',
+    name: 'Crime',
     id: 80,
-    image: 'https://image.tmdb.org/t/p/w500/iQ5ztdjvteGeboxtmRdXEChJOHh.jpg',
   },
   {
-    name: 'documentário',
+    name: 'Documentário',
     id: 99,
-    image: 'https://image.tmdb.org/t/p/w500/j0DbcqFzXB6Bk9fqvgcp1iZG8wj.jpg',
   },
   {
-    name: 'drama',
+    name: 'Drama',
     id: 18,
-    image: 'https://image.tmdb.org/t/p/w500/1OsQJEoSXBjduuCvDOlRhoEUaHu.jpg',
   },
   {
-    name: 'fantasia',
+    name: 'Fantasia',
     id: 14,
-    image: 'https://image.tmdb.org/t/p/w500/ub4EHdVBVm3nHJiamU0gGcKS4ae.jpg',
   },
   {
-    name: 'terror',
+    name: 'Terror',
     id: 27,
-    image: 'https://image.tmdb.org/t/p/w500/5E4nVa3dXTHG2zx9iO7b0UIMsa7.jpg',
   },
   {
-    name: 'mistério',
+    name: 'Mistério',
     id: 9648,
-    image: 'https://image.tmdb.org/t/p/w500/fhQoQfejY1hUcwyuLgpBrYs6uFt.jpg',
   },
   {
-    name: 'romance',
+    name: 'Romance',
     id: 10749,
-    image: 'https://image.tmdb.org/t/p/w500/tPx1HEiS5zd9mLvtb52YY66dkEO.jpg',
   },
   {
-    name: 'ficção científica',
+    name: 'Ficção científica',
     id: 878,
-    image: 'https://image.tmdb.org/t/p/w500/nCbkOyOMTEwlEV0LtCOvCnwEONA.jpg',
   },
   {
-    name: 'guerra',
+    name: 'Guerra',
     id: 10752,
-    image: 'https://image.tmdb.org/t/p/w500/hMLxNLCXRDd62acfCBn6mIyW1HU.jpg',
   },
 ]
