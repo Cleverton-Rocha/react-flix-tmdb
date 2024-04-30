@@ -1,27 +1,29 @@
-import { useFetchTopRatedMovies } from '../queries/movie'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const MovieCard: React.FC = () => {
-  const topRated = useFetchTopRatedMovies()
+type MovieCardProps = {
+  movieTitle: string
+  moviePoster: string
+  movieId: number
+}
+
+const MovieCard: React.FC<MovieCardProps> = ({
+  movieTitle,
+  moviePoster,
+  movieId,
+}) => {
   const imageURL = import.meta.env.VITE_IMG
 
   return (
-    <div className="p-12 text-white">
-      {topRated.isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <div className="flex flex-wrap gap-12">
-          {topRated.data?.results.map((movie) => (
-            <div key={movie.id}>
-              <img
-                className="h-[220px] w-[150px] cursor-pointer rounded-xl transition duration-200 hover:scale-110"
-                src={imageURL + movie.poster_path}
-                alt=""
-              />
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    <>
+      <Link to={`/movie/${movieId}`} className="mx-auto">
+        <img
+          className="h-[200px] w-[150px] cursor-pointer rounded transition duration-200 hover:scale-105"
+          src={imageURL + moviePoster}
+          alt={movieTitle}
+        />
+      </Link>
+    </>
   )
 }
 
