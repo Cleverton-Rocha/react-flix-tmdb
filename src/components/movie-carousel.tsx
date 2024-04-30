@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 
 import { Movie } from '../utils/types'
+import { responsive } from '../utils/utils'
 
 import MovieCard from './movie-card'
 
@@ -18,28 +19,6 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   label,
   redirectTo,
 }) => {
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 1024 },
-      items: 9,
-      slidesToSlide: 3,
-    },
-    desktop: {
-      breakpoint: { max: 1024, min: 800 },
-      items: 5,
-      slidesToSlide: 3,
-    },
-    tablet: {
-      breakpoint: { max: 800, min: 464 },
-      items: 2,
-      slidesToSlide: 3,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 3,
-    },
-  }
   return (
     <div className="">
       <div className="flex items-center justify-between">
@@ -59,6 +38,7 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
             key={movie.id}
             moviePoster={movie.poster_path}
             movieTitle={movie.title}
+            movieId={movie.id}
           />
         ))}
       </Carousel>
