@@ -1,13 +1,17 @@
 import { useParams } from 'react-router-dom'
 
+import { useFetchMovieById } from '../queries/movie'
+
 const Movie: React.FC = () => {
   const { movieId } = useParams()
 
-  // fazer chamada da api com o id do filme
+  const { data } = useFetchMovieById(Number(movieId))
 
+  console.log(data)
+  // terminar pagina de movie, deixar responsivo, terminar search
   return (
     <div>
-      <h1 className="text-white">Movie</h1>
+      <h1 className="text-white">{data?.title}</h1>
     </div>
   )
 }
