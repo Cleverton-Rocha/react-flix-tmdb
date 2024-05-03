@@ -1,11 +1,22 @@
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
 
-import { getMovieByGenre, getTopRatedMovies } from '../../services/api'
+import {
+  getMovieByGenre,
+  getMovieById,
+  getTopRatedMovies,
+} from '../../services/api'
 
 export function useFetchTopRatedMovies(pageParam: number = 1) {
   return useQuery({
     queryKey: ['topRated', pageParam],
     queryFn: () => getTopRatedMovies({ pageParam }),
+  })
+}
+
+export function useFetchMovieById(movieId: number) {
+  return useQuery({
+    queryKey: ['movie', movieId],
+    queryFn: () => getMovieById(movieId),
   })
 }
 
