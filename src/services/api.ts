@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import {
   LoginData,
   LoginResponse,
+  Movie,
   RegisterData,
   RegisterResponse,
 } from '../utils/types'
@@ -38,7 +39,17 @@ export async function getMovieByGenre({
   genreName: string
   pageParam: number
 }) {
-  const { data } = await api.get(`/api/genre/${genreName}?page=${pageParam}`, {
+  const { data } = await api.get<Movie[]>(
+    `/api/genre/${genreName}?page=${pageParam}`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    },
+  )
+  return data
+}
+
+export async function getMovieById(movieId: number) {
+  const { data } = await api.get<Movie>(`/api/movie/${movieId}/details`, {
     headers: { Authorization: `Bearer ${token}` },
   })
   return data
