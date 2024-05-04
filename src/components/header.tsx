@@ -1,12 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Search, User } from 'lucide-react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
 const searchSchema = z.object({
-  search: z
-    .string()
-    .min(1, { message: 'Search must have at least 1 character' }),
+  search: z.string().min(1, { message: 'Write at least one letter.' }),
 })
 
 type SearchFormValues = z.infer<typeof searchSchema>
@@ -20,12 +19,11 @@ const Header: React.FC = () => {
     resolver: zodResolver(searchSchema),
   })
 
-  const onSubmit = (data: SearchFormValues) => {
-    console.log(data)
-  }
+  const navigate = useNavigate()
 
-  //terminar lógica do search, terá que colocar uma rota para a página de search
-  //fazer componente de user que terá endpoints do user na api
+  const onSubmit = (data: SearchFormValues) => {
+    navigate(`/search/${data.search}`)
+  }
 
   return (
     <div className="flex h-24 justify-around bg-black">
@@ -51,7 +49,7 @@ const Header: React.FC = () => {
           </button>
         </div>
         {errors.search && (
-          <span className="flex justify-center px-4 text-sm text-red-700">
+          <span className="flex justify-center px-4 text-sm font-semibold text-red-700">
             {errors.search.message}
           </span>
         )}
