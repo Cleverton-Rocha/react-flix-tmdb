@@ -8,7 +8,7 @@ const Movie: React.FC = () => {
   const { data } = useFetchMovieById(Number(movieId))
 
   console.log(data)
-  // terminar pagina de movie, deixar responsivo, terminar search
+
   return (
     <div>
       <h1 className="text-white">{data?.title}</h1>
