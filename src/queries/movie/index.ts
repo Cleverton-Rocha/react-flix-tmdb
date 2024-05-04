@@ -3,6 +3,7 @@ import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
 import {
   getMovieByGenre,
   getMovieById,
+  getMovieByName,
   getTopRatedMovies,
 } from '../../services/api'
 
@@ -39,5 +40,19 @@ export function useFetchMovieByGenreInfinityQuery(genreName: string) {
     getNextPageParam: (_lastPage, allPages) => {
       return allPages.length + 1
     },
+  })
+}
+
+export function useFetchMovieByNameInfinityQuery(movieName: string) {
+  return useInfiniteQuery({
+    queryKey: ['movie', movieName],
+    queryFn: ({ pageParam }) => getMovieByName(movieName, { pageParam }),
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, allPages) => {
+      if (allPages.length < lastPage.total_pages) {
+        return allPages.length + 1
+      }
+    },
+    retry: false,
   })
 }
