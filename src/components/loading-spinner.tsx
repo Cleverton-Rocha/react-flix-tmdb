@@ -1,6 +1,6 @@
 const LoadingSpinner = () => {
   return (
-    <div className="mt-24 flex h-screen justify-center">
+    <div className="flex items-center justify-center">
       <div
         className="inline-block size-10 animate-spin rounded-full border-[3px] border-current border-t-transparent text-red-600"
         role="status"
