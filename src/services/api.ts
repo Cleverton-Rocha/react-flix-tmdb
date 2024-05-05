@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import {
   LoginData,
   LoginResponse,
-  Movie,
+  MovieDetailed,
   MoviePage,
   RegisterData,
   RegisterResponse,
@@ -53,9 +53,12 @@ export async function getMovieByGenre({
 }
 
 export async function getMovieById(movieId: number) {
-  const { data } = await api.get<Movie>(`/api/movie/${movieId}/details`, {
-    headers: { Authorization: `Bearer ${token}` },
-  })
+  const { data } = await api.get<MovieDetailed>(
+    `/api/movie/${movieId}/details`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    },
+  )
   return data
 }
 
