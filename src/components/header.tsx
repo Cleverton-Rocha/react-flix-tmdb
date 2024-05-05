@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Search, User } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
 const searchSchema = z.object({
@@ -27,9 +27,9 @@ const Header: React.FC = () => {
 
   return (
     <div className="flex h-24 justify-around bg-black">
-      <h1 className="my-auto select-none text-4xl text-white">
+      <Link to="/home" className="my-auto select-none text-4xl text-white">
         React <span className="text-red-700">Flix</span>
-      </h1>
+      </Link>
       <form
         className="flex h-full items-center"
         onSubmit={handleSubmit(onSubmit)}
