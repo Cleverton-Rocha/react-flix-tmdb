@@ -27,3 +27,29 @@ export const responsive = {
     slidesToSlide: 3,
   },
 }
+
+export const formatRevenue = (revenue: number) => {
+  const formattedRevenue = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(revenue)
+
+  return formattedRevenue
+}
+
+export const formatBudget = (budget: number) => {
+  const formattedBudget = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(budget)
+
+  return formattedBudget
+}
+
+export const formatDate = (date: string) => {
+  const formattedDate = new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+  })
+
+  return formattedDate
+}
