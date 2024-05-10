@@ -1,6 +1,12 @@
-const LoadingSpinner = () => {
+import { cn } from '../utils/utils'
+
+type LoadingSpinnerProps = {
+  className?: string
+}
+
+const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ className }) => {
   return (
-    <div className="flex items-center justify-center">
+    <div className={cn('flex items-center justify-center', className)}>
       <div
         className="inline-block size-10 animate-spin rounded-full border-[3px] border-current border-t-transparent text-red-600"
         role="status"
