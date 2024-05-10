@@ -32,7 +32,7 @@ const PasswordToggle: React.FC<PasswordToggleProps> = ({
         onChange={togglePasswordVisibility}
         className="cursor-pointer"
       />
-      <span className="text-sm">Show password</span>
+      <span className="text-xs md:text-sm">Show password</span>
     </div>
   )
 }
