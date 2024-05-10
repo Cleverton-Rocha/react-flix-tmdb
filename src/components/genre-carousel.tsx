@@ -47,7 +47,7 @@ const GenreCarousel: React.FC = () => {
 
   return (
     <>
-      <div className="">
+      <div>
         <div className="flex items-center justify-between">
           <h1 className="select-none text-2xl font-semibold text-white">
             Genres
@@ -67,7 +67,7 @@ const GenreCarousel: React.FC = () => {
           ))}
         </Carousel>
         <div>
-          {status === 'pending' && <LoadingSpinner />}
+          {status === 'pending' && <LoadingSpinner className="h-screen" />}
           <div className="grid grid-cols-9 gap-12 pr-12">
             {data?.pages.map((page, i) => (
               <React.Fragment key={i}>
