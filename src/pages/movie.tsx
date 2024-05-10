@@ -4,6 +4,7 @@ import { useFetchMovieById } from '../queries/movie'
 import Header from '../components/header'
 import { formatBudget, formatDate, formatRevenue } from '../utils/utils'
 import LoadingSpinner from '../components/loading-spinner'
+import RecommendedMovies from '../components/recommended-movies'
 
 const Movie: React.FC = () => {
   const { movieId } = useParams()
@@ -13,6 +14,8 @@ const Movie: React.FC = () => {
   const date = formatDate(data?.release_date ?? '')
   const revenue = formatRevenue(data?.revenue ?? 0)
   const budget = formatBudget(data?.budget ?? 0)
+
+  const firstGenre = data?.genres?.[0]?.name?.toLocaleLowerCase()
 
   return (
     <>
@@ -61,6 +64,10 @@ const Movie: React.FC = () => {
           </div>
         )}
       </div>
+      <RecommendedMovies
+        genreName={firstGenre ?? 'ação'}
+        movieId={movieId ?? ''}
+      />
     </>
   )
 }
