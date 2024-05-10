@@ -21,9 +21,16 @@ export function useFetchMovieById(movieId: number) {
   })
 }
 
+export function useFetchMovieByGenre(genreName: string) {
+  return useQuery({
+    queryKey: ['genre', genreName],
+    queryFn: () => getMovieByGenre({ genreName, pageParam: 1 }),
+  })
+}
+
 export function useFetchTopRatedMoviesInfinityQuery() {
   return useInfiniteQuery({
-    queryKey: ['top-rated'],
+    queryKey: ['topRatedInfinity'],
     queryFn: getTopRatedMovies,
     initialPageParam: 1,
     getNextPageParam: (_lastPage, allPages) => {
@@ -34,7 +41,7 @@ export function useFetchTopRatedMoviesInfinityQuery() {
 
 export function useFetchMovieByGenreInfinityQuery(genreName: string) {
   return useInfiniteQuery({
-    queryKey: ['genre', genreName],
+    queryKey: ['genreInfinity', genreName],
     queryFn: ({ pageParam }) => getMovieByGenre({ genreName, pageParam }),
     initialPageParam: 1,
     getNextPageParam: (_lastPage, allPages) => {
@@ -45,7 +52,7 @@ export function useFetchMovieByGenreInfinityQuery(genreName: string) {
 
 export function useFetchMovieByNameInfinityQuery(movieName: string) {
   return useInfiniteQuery({
-    queryKey: ['movie', movieName],
+    queryKey: ['movieInfinity', movieName],
     queryFn: ({ pageParam }) => getMovieByName(movieName, { pageParam }),
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
