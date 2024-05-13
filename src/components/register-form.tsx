@@ -62,13 +62,13 @@ const RegisterForm: React.FC = () => {
 
   return (
     <>
-      <div className="flex h-screen flex-col items-center justify-center bg-black text-white">
-        <div className="flex h-[820px] w-[450px] flex-col gap-5 rounded-lg p-10">
+      <div className="flex h-full flex-col items-center justify-center bg-black text-white md:h-screen">
+        <div className="flex h-[780px] w-[400px] flex-col gap-5 rounded-lg p-10 lg:w-[450px]">
           <div className="flex flex-col items-center gap-4 ">
-            <h1 className="text-4xl font-semibold">
+            <h1 className="text-3xl font-semibold md:text-4xl">
               React <span className="text-red-700">Flix</span>
             </h1>
-            <span>
+            <span className="text-sm md:text-base">
               Already have an account?{' '}
               <Link
                 to={'/'}
@@ -79,7 +79,7 @@ const RegisterForm: React.FC = () => {
             </span>
           </div>
 
-          <div className="relative flex items-center py-2">
+          <div className="relative flex items-center text-xs md:text-base">
             <div className="flex-grow border-t border-[#131313]"></div>
             <span className="mx-2 flex-shrink text-white">Or</span>
             <div className="flex-grow border-t border-[#131313]"></div>
@@ -91,59 +91,59 @@ const RegisterForm: React.FC = () => {
               className="flex flex-col gap-4"
             >
               <div>
-                <label htmlFor="email" className="text-sm">
+                <label htmlFor="email" className="text-xs md:text-sm">
                   Email
                 </label>
                 <input
                   type="text"
                   placeholder="E.g. example@email.com"
                   {...register('email')}
-                  className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none placeholder:text-base placeholder:text-white/50"
+                  className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none placeholder:text-sm placeholder:text-white/50 md:placeholder:text-base"
                 />
                 {errors.email && (
-                  <span className="flex justify-center px-4 text-sm  text-red-700">
+                  <span className="flex justify-center px-4 text-xs text-red-700  md:text-sm">
                     {errors.email.message}
                   </span>
                 )}
               </div>
 
               <div>
-                <label htmlFor="username" className="text-sm">
+                <label htmlFor="username" className="text-xs md:text-sm">
                   Username
                 </label>
                 <input
                   type="text"
                   placeholder="E.g. your_username123"
                   {...register('username')}
-                  className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none placeholder:text-base placeholder:text-white/50"
+                  className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none  placeholder:text-sm placeholder:text-white/50 md:placeholder:text-base"
                 />
                 {errors.username && (
-                  <span className="flex justify-center px-4 text-sm  text-red-700">
+                  <span className="flex justify-center px-4 text-xs text-red-700  md:text-sm">
                     {errors.username.message}
                   </span>
                 )}
               </div>
 
               <div>
-                <label htmlFor="password" className="text-sm">
+                <label htmlFor="password" className="text-xs md:text-sm">
                   Password
                 </label>
                 <input
                   {...register('password')}
                   type={inputType}
                   placeholder="Enter your password"
-                  className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none placeholder:text-base placeholder:text-white/50"
+                  className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none placeholder:text-sm placeholder:text-white/50 md:placeholder:text-base"
                 />
 
                 {errors.password && (
-                  <span className="flex justify-center px-4 text-sm text-red-700">
+                  <span className="flex justify-center px-4 text-xs text-red-700 md:text-sm">
                     {errors.password.message}
                   </span>
                 )}
               </div>
 
               <div>
-                <label htmlFor="password" className="text-sm">
+                <label htmlFor="password" className="text-xs md:text-sm">
                   Confirm password
                 </label>
                 <div className="relative">
@@ -151,12 +151,12 @@ const RegisterForm: React.FC = () => {
                     {...register('confirmPassword')}
                     type={inputType}
                     placeholder="Confirm your password"
-                    className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none placeholder:text-base placeholder:text-white/50"
+                    className="mb-2 mt-3 w-full rounded-full border border-[#131313] bg-black px-4 py-2 text-lg text-white outline-none placeholder:text-sm placeholder:text-white/50 md:placeholder:text-base"
                   />
                 </div>
 
                 {errors.confirmPassword && (
-                  <span className="flex justify-center px-4 text-sm text-red-700">
+                  <span className="flex justify-center px-4 text-xs text-red-700 md:text-sm">
                     {errors.confirmPassword.message}
                   </span>
                 )}
@@ -165,15 +165,15 @@ const RegisterForm: React.FC = () => {
               <PasswordToggle
                 inputType={inputType}
                 setInputType={setInputType}
-                className="p-2"
+                className="px-2"
               />
 
-              <div className="mt-4 flex cursor-pointer justify-center transition">
+              <div className="mt-2 flex cursor-pointer justify-center transition">
                 <button
                   type="submit"
                   className="w-2/3 rounded-full border-2 border-[#131313] p-2 text-xl font-semibold hover:bg-white hover:text-black"
                 >
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center justify-center text-base md:text-xl">
                     <span>Sign up</span>
                   </div>
                 </button>
