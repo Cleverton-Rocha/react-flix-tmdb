@@ -26,8 +26,11 @@ const Header: React.FC = () => {
   }
 
   return (
-    <div className="flex h-24 justify-around bg-black">
-      <Link to="/home" className="my-auto select-none text-4xl text-white">
+    <div className="flex h-24 justify-around gap-6 bg-black md:gap-0">
+      <Link
+        to="/home"
+        className="my-auto hidden select-none text-4xl text-white md:block"
+      >
         React <span className="text-red-700">Flix</span>
       </Link>
       <form
@@ -39,7 +42,7 @@ const Header: React.FC = () => {
             {...register('search')}
             type="text"
             placeholder="Search for a movie"
-            className="h-12 w-[450px] rounded-full border border-[#131313] bg-black px-6 text-white outline-none placeholder:text-[#9392a3]"
+            className="h-12 w-[280px] rounded-full border border-[#131313] bg-black px-6 text-white outline-none placeholder:text-[#9392a3] md:w-[450px]"
           />
           <button
             type="submit"
@@ -49,7 +52,7 @@ const Header: React.FC = () => {
           </button>
         </div>
         {errors.search && (
-          <span className="flex justify-center px-4 text-sm font-semibold text-red-700">
+          <span className="hidden justify-center px-4 text-sm font-semibold text-red-700 md:flex">
             {errors.search.message}
           </span>
         )}

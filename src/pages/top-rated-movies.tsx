@@ -49,17 +49,17 @@ const TopRatedMovies: React.FC = () => {
         {status === 'pending' && <LoadingSpinner />}
         <div>
           <div className="mb-6 flex items-center justify-between">
-            <h1 className="select-none text-2xl font-semibold text-white">
+            <h1 className="select-none font-semibold text-white md:text-2xl">
               Top rated movies
             </h1>
             <div className="flex items-center text-white transition duration-200 hover:text-red-700">
-              <Link className="text-xl font-semibold" to="/home">
+              <Link className="font-semibold md:text-xl" to="/home">
                 Home
               </Link>
               <ChevronRight />
             </div>
           </div>
-          <div className="grid grid-cols-9 gap-12 pr-12">
+          <div className="grid grid-cols-2 gap-y-5 md:grid-cols-9 md:gap-12 md:pr-12">
             {data?.pages.map((page, i) => (
               <React.Fragment key={i}>
                 {page.results.map((movie: Movie) => (

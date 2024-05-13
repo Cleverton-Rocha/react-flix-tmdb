@@ -21,7 +21,7 @@ const GenreCard: React.FC<GenreCardProps> = ({
       >
         <span
           className={cn(
-            'absolute w-[180px] rounded-full px-4 py-3 text-center text-xl text-white hover:bg-[#131313]',
+            'absolute w-[125px] rounded-full px-4 py-1.5 text-center text-lg text-white hover:bg-[#131313] md:w-[180px] md:px-4 md:py-3 md:text-xl',
             className,
           )}
         >

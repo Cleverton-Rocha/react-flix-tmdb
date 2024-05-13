@@ -20,10 +20,6 @@ export const genres = [
     id: 80,
   },
   {
-    name: 'Documentário',
-    id: 99,
-  },
-  {
     name: 'Drama',
     id: 18,
   },
@@ -42,10 +38,6 @@ export const genres = [
   {
     name: 'Romance',
     id: 10749,
-  },
-  {
-    name: 'Ficção científica',
-    id: 878,
   },
   {
     name: 'Guerra',

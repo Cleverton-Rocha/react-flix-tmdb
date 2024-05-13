@@ -19,25 +19,33 @@ const Movie: React.FC = () => {
 
   return (
     <>
-      <div className="px-12">
+      <div className="px-4 md:px-12">
+        {' '}
+        {/* Adjust padding for small screens */}
         <Header />
         {status === 'pending' ? (
           <div className="flex h-screen justify-center">
             <LoadingSpinner />
           </div>
         ) : (
-          <div className="mt-12 flex flex-col items-center gap-4">
+          <div className="mt-8 flex flex-col items-center gap-4 md:mt-12">
             <div className="flex justify-center">
               <img
-                className="w-[360px] rounded"
+                className="w-full rounded md:max-w-[360px]"
                 src={imageURL + data?.poster_path}
                 alt={data?.title}
               />
             </div>
-            <div className="flex w-[750px] flex-col items-center gap-5 pb-8 text-white">
-              <h1 className="text-3xl text-red-700">{data?.title}</h1>
-              <h2 className="text-md font-semibold">{data?.tagline}</h2>
-              <div className="flex flex-wrap justify-center gap-5">
+            <div className="flex w-full flex-col items-center gap-5 pb-8 text-white md:max-w-[750px]">
+              <h1 className="text-2xl text-red-700 md:text-3xl">
+                {data?.title}
+              </h1>{' '}
+              {/* Adjust text size */}
+              <h2 className="md:text-md text-sm font-semibold">
+                {data?.tagline}
+              </h2>{' '}
+              {/* Adjust text size */}
+              <div className="flex flex-col gap-5">
                 <p>{data?.overview}</p>
                 <p className="font-semibold">
                   <span className="text-red-700">Genres:</span>{' '}

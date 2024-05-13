@@ -20,19 +20,24 @@ const MovieCarousel: React.FC<MovieCarouselProps> = ({
   redirectTo,
 }) => {
   return (
-    <div className="">
+    <div>
       <div className="flex items-center justify-between">
-        <h1 className="select-none text-2xl font-semibold text-white">
+        <h1 className="select-none font-semibold text-white md:text-2xl">
           {label}
         </h1>
         <div className="flex items-center text-white transition duration-200 hover:text-red-700">
-          <Link className="text-xl font-semibold" to={redirectTo}>
+          <Link className="font-semibold md:text-xl" to={redirectTo}>
             See all
           </Link>
           <ChevronRight />
         </div>
       </div>
-      <Carousel className="h-[250px] w-full" responsive={responsive}>
+      <Carousel
+        className="h-[250px] w-full"
+        draggable={true}
+        removeArrowOnDeviceType={['tablet', 'mobile']}
+        responsive={responsive}
+      >
         {results.map((movie) => (
           <MovieCard
             key={movie.id}

@@ -18,7 +18,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
     <>
       <Link to={`/movie/${movieId}`} className="mx-auto">
         <img
-          className="h-[200px] w-[150px] cursor-pointer rounded transition duration-200 hover:scale-105"
+          className="h-[200px] cursor-pointer select-none rounded transition duration-200 hover:scale-105 md:h-[200px] md:w-[150px]"
           src={imageURL + moviePoster}
           alt={movieTitle}
         />

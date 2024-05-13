@@ -49,11 +49,16 @@ const GenreCarousel: React.FC = () => {
     <>
       <div>
         <div className="flex items-center justify-between">
-          <h1 className="select-none text-2xl font-semibold text-white">
+          <h1 className="select-none text-lg font-semibold text-white md:text-2xl">
             Genres
           </h1>
         </div>
-        <Carousel className="h-[100px] w-full" responsive={responsive}>
+        <Carousel
+          className="h-[100px] w-full"
+          removeArrowOnDeviceType={['tablet', 'mobile']}
+          draggable={true}
+          responsive={responsive}
+        >
           {genres.map((genre) => (
             <GenreCard
               className={cn(
@@ -68,7 +73,7 @@ const GenreCarousel: React.FC = () => {
         </Carousel>
         <div>
           {status === 'pending' && <LoadingSpinner className="h-screen" />}
-          <div className="grid grid-cols-9 gap-12 pr-12">
+          <div className="grid grid-cols-2 gap-y-5 md:grid-cols-9 md:gap-12 md:pr-12">
             {data?.pages.map((page, i) => (
               <React.Fragment key={i}>
                 {page.results.map((movie: Movie) => (
