@@ -1,8 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Search, User } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
+import Cookies from 'js-cookie'
+import toast from 'react-hot-toast'
 
 const searchSchema = z.object({
   search: z.string().min(1, { message: 'Write at least one letter.' }),
@@ -23,6 +25,15 @@ const Header: React.FC = () => {
 
   const onSubmit = (data: SearchFormValues) => {
     navigate(`/search/${data.search}`)
+  }
+
+  const handleLogout = () => {
+    Cookies.remove('token')
+    Cookies.remove('user')
+    toast.success('Logged out successfully.')
+    setTimeout(() => {
+      navigate('/')
+    }, 5000)
   }
 
   return (
@@ -57,9 +68,13 @@ const Header: React.FC = () => {
           </span>
         )}
       </form>
-      <div className="mr-12 flex items-center text-white">
-        <User size={25} />
-      </div>
+      <Link
+        to="/"
+        className="mr-12 flex items-center font-semibold text-white transition duration-200 hover:text-red-700"
+        onClick={() => handleLogout()}
+      >
+        Log out
+      </Link>
     </div>
   )
 }
