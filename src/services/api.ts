@@ -11,7 +11,7 @@ import {
 } from '../utils/types'
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'https://tmdb-api-duv7.onrender.com',
 })
 
 const token = Cookies.get('token')
