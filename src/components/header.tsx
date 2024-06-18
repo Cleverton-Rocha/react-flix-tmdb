@@ -70,7 +70,7 @@ const Header: React.FC = () => {
       </form>
       <Link
         to="/"
-        className="mr-12 flex items-center font-semibold text-white transition duration-200 hover:text-red-700"
+        className="mr-12 flex items-center text-sm font-semibold text-white transition duration-200 hover:text-red-700 md:text-base"
         onClick={() => handleLogout()}
       >
         Log out
