@@ -36,10 +36,6 @@ export const genres = [
     id: 9648,
   },
   {
-    name: 'Romance',
-    id: 10749,
-  },
-  {
     name: 'Guerra',
     id: 10752,
   },
